@@ -14,11 +14,21 @@ public class MainActivity extends AppCompatActivity {
 
     EditText loginInput;
     EditText password;
+    String errorMessage = "Złe login lub hasło!";
     TextView errorMessageView;
     Button loginButton;
     String passwordPattern = "12345";
+    String[] logins = {"Maciek", "Adam", "BestFriend"};
 
-    @SuppressLint("MissingInflatedId")
+    protected boolean checkLogin(String login) {
+        for(String loginPattern : logins) {
+            if(loginPattern.equals(login)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     public void OnClick(View view){
                 if (passwordPattern.equals(password.getText().toString())){
                     Intent intent = new Intent(MainActivity.this, MainActivityHello.class);
+                    intent.putExtra("login", 1);
                     startActivities(intent);
                 } else {
                     errorMessageView.setText(errorMessage);
