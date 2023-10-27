@@ -22,7 +22,7 @@ public class MainActivityHello extends AppCompatActivity {
 
         login = getIntent().getStringExtra("login");
         helloMessageView = findViewById(R.id.textView2);
-        helloMessageView.setText("Hello " + login);
+        helloMessageView.setText("Witaj " + login);
         logoutButton = findViewById(R.id.buttonLogout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

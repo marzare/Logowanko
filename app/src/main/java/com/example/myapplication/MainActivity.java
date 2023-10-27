@@ -44,11 +44,12 @@ public class MainActivity extends AppCompatActivity {
                 if (passwordPattern.equals(password.getText().toString())){
                     Intent intent = new Intent(MainActivity.this, MainActivityHello.class);
                     intent.putExtra("login", 1);
-                    startActivities(intent);
+                    startActivities(Intent);
                 } else {
                     errorMessageView.setText(errorMessage);
                 }
             }
         });
     }
+
 }
