@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.buttonLogin);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-                    public void OnClick(View view){
+                    public void onClick(View view){
                 if (passwordPattern.equals(password.getText().toString())){
                     Intent intent = new Intent(MainActivity.this, MainActivityHello.class);
                     intent.putExtra("login", 1);
