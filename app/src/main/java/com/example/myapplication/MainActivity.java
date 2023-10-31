@@ -2,51 +2,46 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText loginInput;
-    EditText password;
     String errorMessage = "Złe login lub hasło!";
     TextView errorMessageView;
-    Button loginButton;
-    String passwordPattern = "12345";
-    String[] logins = {"Maciek", "Adam", "BestFriend"};
 
-    protected boolean checkLogin(String login) {
-        for(String loginPattern : logins) {
-            if(loginPattern.equals(login)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    public String dobrehaslo = "12";
+    public String dobrylogin = "we";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        loginInput =  findViewById(R.id.editTextText);
-        password = findViewById(R.id.editTextTextPassword);
         errorMessageView = findViewById(R.id.textView);
-        loginButton = findViewById(R.id.buttonLogin);
-        loginButton.setOnClickListener(new View.OnClickListener() {
+
+        Button button = (Button) findViewById(R.id.buttonLogin);
+        button.setOnClickListener(new View.OnClickListener() {
+            EditText log = (EditText)findViewById(R.id.editTextText);
+            String loginwpisany = log.getText().toString();
+            EditText hass = (EditText)findViewById(R.id.editTextTextPassword);
+            String haslowpisane = hass.getText().toString();
+
+
             @Override
-                    public void onClick(View view){
-                if (passwordPattern.equals(password.getText().toString())){
-                    startActivity(new Intent(MainActivity.this, MainActivityHello.class));
-                } else {
-                    errorMessageView.setText(errorMessage);
+                public void onClick(View v) {
+                    if (dobrylogin.equals(loginwpisany) && dobrehaslo.equals(haslowpisane)) {
+                        startActivity(new Intent(MainActivity.this, MainActivityHello.class));
+                    } else {
+                        errorMessageView.setText(errorMessage);
+                    }
+
                 }
-            }
         });
     }
 
