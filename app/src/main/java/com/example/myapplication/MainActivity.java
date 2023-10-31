@@ -42,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
                     public void onClick(View view){
                 if (passwordPattern.equals(password.getText().toString())){
-                    Intent intent = new Intent(MainActivity.this, MainActivityHello.class);
-                    intent.putExtra("login", 1);
-                    startActivities(Intent);
+                    startActivity(new Intent(MainActivity.this, MainActivityHello.class));
                 } else {
                     errorMessageView.setText(errorMessage);
                 }

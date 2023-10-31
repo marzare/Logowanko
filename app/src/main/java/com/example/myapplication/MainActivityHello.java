@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class MainActivityHello extends AppCompatActivity {
 
-    EditText textView;
+    EditText textView2;
     String login;
     Button logoutButton;
     String helloMessageView;
@@ -21,15 +21,13 @@ public class MainActivityHello extends AppCompatActivity {
         setContentView(R.layout.activity_main_hello);
 
         login = getIntent().getStringExtra("login");
-        helloMessageView = findViewById(R.id.textView2);
-        helloMessageView.setText("Witaj " + login);
+
+        textView2.setText("Witaj " + login);
         logoutButton = findViewById(R.id.buttonLogout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivityHello.this, MainActivity.class);
-                startActivity(intent);
-
+                startActivity(new Intent(MainActivityHello.this, MainActivity.class));
 
             }
         });
