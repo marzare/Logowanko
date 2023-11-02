@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
     String errorMessage = "Złe login lub hasło!";
     TextView errorMessageView;
-
     public String dobrehaslo = "12";
     public String dobrylogin = "we";
 
@@ -27,18 +26,20 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.buttonLogin);
         button.setOnClickListener(new View.OnClickListener() {
-            EditText log = (EditText)findViewById(R.id.editTextText);
-            String loginwpisany = log.getText().toString();
-            EditText hass = (EditText)findViewById(R.id.editTextTextPassword);
-            String haslowpisane = hass.getText().toString();
+
 
 
             @Override
                 public void onClick(View v) {
+
+                EditText log = (EditText)findViewById(R.id.editTextText);
+                String loginwpisany = log.getText().toString();
+                EditText hass = (EditText)findViewById(R.id.editTextTextPassword);
+                String haslowpisane = hass.getText().toString();
                     if (dobrylogin.equals(loginwpisany) && dobrehaslo.equals(haslowpisane)) {
                         startActivity(new Intent(MainActivity.this, MainActivityHello.class));
                     } else {
-                        errorMessageView.setText(errorMessage);
+                        errorMessageView.setText(errorMessage + loginwpisany + haslowpisane);
                     }
 
                 }

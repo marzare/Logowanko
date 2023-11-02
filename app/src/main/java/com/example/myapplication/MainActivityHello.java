@@ -18,6 +18,8 @@ public class MainActivityHello extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.buttonLogout);
         button.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivityHello.this, MainActivity.class));
